@@ -32,6 +32,9 @@ The solution uses GitHub APIs to retrieve the data.
 - For simplicity, ASP.NET Core serves static HTML, CSS, and JavaScript files directly to clients.<br>
 The files are stored within the project's web root directory.
 
+- Each page displays 30 records from found GitHub repositories.<br>
+User can move through the pages by clicking the “Next“ button on the bottom of the screen.
+
 #
 
 ### How to run the project:
