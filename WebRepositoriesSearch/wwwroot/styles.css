@@ -1,0 +1,195 @@
+﻿body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+}
+
+.body-container {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+
+/* Style the search elements */
+
+.search-form {
+    padding: 30px 30px 0
+}
+
+*:focus {
+    outline: none;
+}
+
+/* Style the search field */
+form.search {
+    border-bottom: solid 1px #262626;
+    padding: 0;
+}
+
+form.search input[type=text] {
+    font-size: 1.2em;
+    border: 0;
+    float: left;
+    width: 90%;
+    background-color: #F2F2F2 !important;
+    border-radius: 0;
+    color: #262626;
+}
+
+
+textarea:focus, input:focus {
+    outline: none !important;
+}
+
+.form-control, .form-control:focus {
+    box-shadow: none;
+}
+
+/* Style the submit button */
+form.search button {
+    float: left;
+    width: 10%;
+    font-size: 32px;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    color: #262626;
+}
+
+form.search button:hover {
+    filter: opacity(0.6);
+}
+
+form.search button:active {
+    outline: none;
+    border: none;
+}
+
+form.search button:focus {
+    outline: 0;
+}
+
+/* Clear floats */
+form.search::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Style repository-items container */
+
+.repository-items-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: max-content;
+    margin-top: 50px;
+}
+
+.repository-item-wrapper {
+    position: relative;
+    justify-content: center;
+}
+
+.repository-img-background {
+    height: 300px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.repository-item-wrapper:hover .repository-img-background {
+    transition: 1s;
+    filter: brightness(10%);
+}
+
+.img-text-wrapper {
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    font-size: 1.2em;   
+}
+
+
+.img-text-wrapper .logo-wrapper {
+    width: 100%;
+    margin-bottom: 20px;
+    transition: 1s;
+    font-weight: 600;
+    font-size: 1.5em;
+    color: transparent;
+}
+
+.img-text-wrapper:hover .logo-wrapper {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.img-text-wrapper .btn-wrapper button {
+    background-color: transparent;
+    color: transparent;
+    font-weight: 600;
+    border: none !important;
+}
+
+.btn-wrapper button.focus, .btn-wrapper button:focus {
+    outline: 0;
+    box-shadow: 0;
+}
+
+
+.img-text-wrapper:hover .btn-wrapper button {
+    color: lightseagreen;
+}
+
+.btn-next-container {
+    text-align: center;
+    padding: 15px 0;
+}
+
+
+@media screen and (max-width: 768px) {    
+    .repository-items-wrapper {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .img-text-wrapper {
+        position: relative;
+        font-size: 0.9em;
+    }
+
+    .img-text-wrapper .logo-wrapper {
+        margin-bottom: 0;
+        color: #3c4146;
+    }
+
+    .img-text-wrapper:hover .logo-wrapper {
+        color: #3c4146;
+    }
+
+    .repository-item-wrapper:hover .repository-img-background {
+        filter: none;
+    }
+
+    .img-text-wrapper .btn-wrapper button {
+        color: lightseagreen;
+    }
+
+    .repository-item-wrapper {
+        border-right: solid 1px #8a8a8a;
+        border-bottom: solid 1px #8a8a8a;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .repository-items-wrapper {        
+        grid-template-columns: 1fr;        
+        margin-top: 50px;
+    }
+}

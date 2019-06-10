@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Repositories Search</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+
+    <link href="styles.css" rel="stylesheet" />
+    <link href="navMenuStyles.css" rel="stylesheet" />
+</head>
+
+<body ng-app="repositorySearchApp">
+
+    <div class="body-container">
+
+        <!--navbar-->
+        <div class="nav-wrapper">
+            <div class="left-side">
+                <div class="nav-link-wrapper">
+                    <a href="#!searchRepositories">
+                        Search Repositories
+                    </a>
+                </div>
+                <div class="nav-link-wrapper">
+                    <a href="#!fetchBookmarks">
+                        Fetch Bookmarks
+                    </a>
+                </div>                
+            </div>
+
+            <div class="right-side">
+                <div class="brand">
+                    <div>Oksana Blagutin</div>
+                </div>
+            </div>
+        </div>
+        <!--navbar-->
+
+        <div ng-view=""></div>
+        <script type="text/ng-template" id="searchRepositories.htm">
+
+            <!--search-form-->
+            <div class="search-form" style="box-sizing: border-box;">
+                <form ng-submit="getRepositoriesInit()" class="search">
+                    <div class="form-group">
+                        <input ng-model="repositoryName" class="form-control"
+                               placeholder="Search github repositories.."
+                               name="search" type="text" />
+                        <button type="submit"><i class="fa fa-search btn-lg"></i></button>
+                    </div>
+                </form>
+            </div>
+            <!--search-form-->
+            <!--repository-items-wrapper-->
+            <div class="repository-items-wrapper">
+
+                <!--repository-item-->
+                <ng-container ng-repeat="repository in repositories">
+                    <div class="repository-item-wrapper">
+                        <div class="repository-img-background"
+                             style="background-image: url({{repository.owner.avatar_url}})">
+                        </div>
+
+                        <div class="img-text-wrapper">
+                            <div class="logo-wrapper">
+                                <p>{{repository.name}}</p>
+                            </div>
+
+                            <div class="btn-wrapper">
+                                <button type="button" class="btn-default btn-lg"
+                                        ng-click="bookmarkRepository(repository)">
+                                    <i class="fa fa-star-o"></i>  Bookmark
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+                <!--repository-item-->
+
+            </div>
+            <!--repository-items-wrapper-->
+
+            <!--btn-next-container-->
+            <div class="container btn-next-container" ng-show="totalCount>0">
+                <button type="button" class="btn btn-light btn-lg"
+                        ng-disabled="currentPage >= totalCount/pageSize - 1"
+                        ng-click="getRepositories()">
+                    <i class="fa fa-angle-double-down"></i> Next
+                </button>
+            </div>
+            <!--btn-next-container-->
+        </script>
+
+        <!--fetchBookmarks.htm-->
+        <script type="text/ng-template" id="fetchBookmarks.htm">
+            <h2> View Bookmarks </h2>
+            {{message}}
+        </script>
+    </div>
+  
+    <script src="script.js"></script>
+
+</body>
+</html>
