@@ -1,7 +1,12 @@
 # GitHub Repositories Search App
 
 This is a Web application for searching GitHub repositories by repository name.<br>
-The solution uses GitHub APIs to retrieve the data.
+- The user types the repository he would like to search;
+- The page displays results as gallery items where each item shows repository name, owner's avatar and a bookmark button;
+- The user can move through the pages by clicking the “Next“ button.
+
+
+The solution uses GitHub APIs to retrieve the data and responsive web design patterns to render the result.
 
 
 ### Technologies : AngularJS, ASP.NET Core, Bootstrap
