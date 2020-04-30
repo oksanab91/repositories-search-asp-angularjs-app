@@ -11,9 +11,7 @@ The solution uses GitHub APIs to retrieve the data and responsive web design pat
 
 ### Technologies : AngularJS, ASP.NET Core, Bootstrap
 
-#
 
-#
 
 ## Server-side - ASP.NET Core API project
 
@@ -46,7 +44,7 @@ User can move through the pages by clicking the “Next“ button on the bottom 
 
 1. Open the project from Visual Studio 2017
 
-2. Run *donnet restore* in NuGet Package Manager Console
+2. Run *dotnet restore* in NuGet Package Manager Console
 
 3. In case of missing “Microsoft.AspNetCore.Session” package, install the stable version of the package from the NuGet Package Manager
 
